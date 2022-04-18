@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Layout from "../components/layout";
+import NestedLayout from "../components/nested-layout";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className={styles.container}>
       <Head>
@@ -65,5 +67,13 @@ export default function Home() {
         </a>
       </footer>
     </div>
+  )
+}
+
+Page.getLayout = function getLayout(page){
+  return (
+      <Layout>
+        <NestedLayout>{page}</NestedLayout>
+      </Layout>
   )
 }
